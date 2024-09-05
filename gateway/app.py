@@ -1,10 +1,13 @@
 from flask import Flask, request, jsonify, Response
 import requests
+from flask_cors import CORS
 
 API_ETIQUETAS = "http://localhost:8000/"
 API_TAREFAS = "http://localhost:8085/"
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})  # Permite todas as origens
+
 
 def api_online(url):
     try:
